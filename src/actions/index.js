@@ -11,7 +11,10 @@ export const fetchSearchItems = ({ searchText }) => dispatch => {
         console.log(response.result.items);
         dispatch({
             type: FETCH_SEARCH_ITEMS,
-            payload: response.result.items
+            payload: {
+                items: response.result.items,
+                searchText
+            }
         })
     });
 

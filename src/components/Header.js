@@ -7,21 +7,25 @@ class Header extends Component {
     render() {
         return (
             <header>
-                <div>React YouTube</div>
-                <div>This is the header component.</div>
+                <input type="text" value={this.props.state.searchText} onChange={this.props.onInputChange}/>
                 <button onClick={this.props.onClick}>Search</button>
             </header>
         );
     }
 }
 
-const mapStateToProps = () => {
-    return {};
+const mapStateToProps = (state) => {
+    return {
+        state: state
+    };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onClick: () => {
+        onInputChange: (e) => {
+            dispatch(fetchSearchItems({searchText: e.target.value}))
+        },
+        onClick: (e) => {
             dispatch(fetchSearchItems({searchText: 'batman'}))
         }
     }
