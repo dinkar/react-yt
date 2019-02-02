@@ -13,9 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   componentDidMount() {
-    setTimeout(() => {
-      this.props.onComponentDidMount();
-    }, 2000)
+    this.props.onComponentDidMount();
   }
 
   render() {

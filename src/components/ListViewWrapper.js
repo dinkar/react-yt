@@ -6,9 +6,7 @@ import ListView from './ListView';
 
 class ListViewWrapper extends Component {
   componentDidMount() {
-    setTimeout(() => {
-      this.props.fetchChannelIdVideos(this.props.match.params);
-    }, 2000);
+    this.props.fetchChannelIdVideos(this.props.match.params);
   }
   componentWillReceiveProps(newProps) {
     if (newProps.match.params.id !== this.props.match.params.id) {
@@ -23,7 +21,7 @@ class ListViewWrapper extends Component {
       </div>
     )
   }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -31,12 +29,12 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(fetchChannelIdVideos(params));
     }
   }
-}
+};
 
 const mapStateToProps = (state) => {
   return {
     state: state
   };
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListViewWrapper);
