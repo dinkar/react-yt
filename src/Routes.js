@@ -7,7 +7,7 @@ const Routes = () => (
   <div>
     <Route exact path="/" component={ListViewWrapper} />
     <Route path="/video-category/:id" component={ListViewWrapper} />
-    <Route exact path="/video-player" component={VideoPlayer} />
+    <Route path="/video-player/:videoId" component={VideoPlayer} />
   </div>
 );
 

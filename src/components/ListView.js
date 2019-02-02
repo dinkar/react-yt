@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class ListView extends Component {
   render () {
@@ -12,8 +13,10 @@ class ListView extends Component {
             const thumbnail = snippet.thumbnails.default;
             return (
               <Col key={ item.id }>
-                <div>{snippet.channelTitle} - {snippet.title}</div>
-                <img src={thumbnail.url} width={thumbnail.width} height={thumbnail.height} alt="Search result"/>
+                <Link to={`/video-player/${item.id}`}>
+                  <div>{snippet.channelTitle} - {snippet.title}</div>
+                  <img src={thumbnail.url} width={thumbnail.width} height={thumbnail.height} alt="Search result"/>
+                </Link>
               </Col>);
           })
         }
