@@ -3,11 +3,8 @@ import VideoPlayer from './VideoPlayer';
 
 class VideoPlayerWrapper extends Component {
   render() {
-    return (
-      <VideoPlayer videoId={this.props.match.params.videoId}></VideoPlayer>
-    );
+    return <VideoPlayer videoId={this.props.match.params.videoId} />;
   }
 }
 
 export default VideoPlayerWrapper;
-

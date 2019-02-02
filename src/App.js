@@ -21,14 +21,14 @@ class App extends Component {
       <Router>
         <Container fluid={true}>
           <Row className="justify-content-md-center">
-            <Header></Header>
+            <Header />
           </Row>
           <Row>
             <Col lg={2}>
-              <Navbar items={this.props.state.videoCategories}></Navbar>
+              <Navbar items={this.props.state.videoCategories} />
             </Col>
             <Col lg={10}>
-              <Routes></Routes>
+              <Routes />
             </Col>
           </Row>
         </Container>
@@ -37,18 +37,21 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     onComponentDidMount: () => {
-      dispatch(fetchVideoCategories())
+      dispatch(fetchVideoCategories());
     }
-  }
-}
+  };
+};
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     state: state
   };
-}
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

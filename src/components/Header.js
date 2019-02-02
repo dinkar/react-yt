@@ -8,29 +8,32 @@ class Header extends Component {
     return (
       <header>
         <Form>
-          <Form.Control value={this.props.state.searchText} onChange={this.props.onInputChange}/>
+          <Form.Control
+            value={this.props.state.searchText}
+            onChange={this.props.onInputChange}
+          />
         </Form>
       </header>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     state: state
   };
-}
+};
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    onInputChange: (e) => {
-      dispatch(fetchSearchItems({searchText: e.target.value}))
+    onInputChange: e => {
+      dispatch(fetchSearchItems({ searchText: e.target.value }));
     },
-    onClick: (e) => {
-      dispatch(fetchSearchItems({searchText: 'batman'}))
+    onClick: e => {
+      dispatch(fetchSearchItems({ searchText: 'batman' }));
     }
-  }
-}
+  };
+};
 
 export default connect(
   mapStateToProps,

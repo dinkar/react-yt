@@ -1,12 +1,19 @@
-import { FETCH_SEARCH_ITEMS, FETCH_VIDEO_CATEGORIES, FETCH_CHANNEL_VIDEOS } from './types';
-import { getSearchItems, getVideoCategories, getChannelVideos } from '../services/video';
+import {
+  FETCH_SEARCH_ITEMS,
+  FETCH_VIDEO_CATEGORIES,
+  FETCH_CHANNEL_VIDEOS
+} from './types';
+import {
+  getSearchItems,
+  getVideoCategories,
+  getChannelVideos
+} from '../services/video';
 
 export const fetchSearchItems = ({ searchText }) => dispatch => {
   getSearchItems({
     q: searchText,
     part: 'snippet'
-  })
-  .then(result => {
+  }).then(result => {
     dispatch({
       type: FETCH_SEARCH_ITEMS,
       payload: {
@@ -17,13 +24,12 @@ export const fetchSearchItems = ({ searchText }) => dispatch => {
   });
 };
 
-export const fetchVideoCategories = (() => dispatch => {
+export const fetchVideoCategories = () => dispatch => {
   getVideoCategories({
     chart: 'mostPopular',
     regionCode: 'US',
     part: 'snippet'
-  })
-  .then(({items}) => {
+  }).then(({ items }) => {
     dispatch({
       type: FETCH_VIDEO_CATEGORIES,
       payload: {
@@ -31,9 +37,9 @@ export const fetchVideoCategories = (() => dispatch => {
       }
     });
   });
-});
+};
 
-export const fetchChannelIdVideos = (({ id }) => dispatch => {
+export const fetchChannelIdVideos = ({ id }) => dispatch => {
   getChannelVideos({
     videoCategoryId: id,
     chart: 'mostPopular',
@@ -41,20 +47,20 @@ export const fetchChannelIdVideos = (({ id }) => dispatch => {
     part: 'snippet',
     type: 'video'
   })
-  .then(({items}) => {
-    dispatch({
-      type: FETCH_CHANNEL_VIDEOS,
-      payload: {
-        items: items
-      }
+    .then(({ items }) => {
+      dispatch({
+        type: FETCH_CHANNEL_VIDEOS,
+        payload: {
+          items: items
+        }
+      });
+    })
+    .catch(() => {
+      dispatch({
+        type: FETCH_CHANNEL_VIDEOS,
+        payload: {
+          items: []
+        }
+      });
     });
-  })
-  .catch(() => {
-    dispatch({
-      type: FETCH_CHANNEL_VIDEOS,
-      payload: {
-        items: []
-      }
-    });
-  });
-});
+};

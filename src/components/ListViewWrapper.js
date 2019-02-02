@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchChannelIdVideos } from '../actions';
@@ -17,24 +16,27 @@ class ListViewWrapper extends Component {
     return (
       <div>
         {/* <div>Search Text: {this.props.state.searchText}</div> */}
-        <ListView items={this.props.state.items}></ListView>
+        <ListView items={this.props.state.items} />
       </div>
-    )
+    );
   }
-};
+}
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    fetchChannelIdVideos: (params) => {
+    fetchChannelIdVideos: params => {
       dispatch(fetchChannelIdVideos(params));
     }
-  }
+  };
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     state: state
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListViewWrapper);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ListViewWrapper);

@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { getYouTubePlayerInstance } from '../services/video';
 
 class VideoPlayer extends Component {
-  onPlayerReady() {
-  }
-  onPlayerStateChange() {
-  }
+  onPlayerReady() {}
+  onPlayerStateChange() {}
   componentDidMount() {
     getYouTubePlayerInstance(this.youtubePlayerAnchor, {
       videoId: this.props.videoId,
@@ -18,7 +16,11 @@ class VideoPlayer extends Component {
   render() {
     return (
       <div>
-        <div ref={(r) => { this.youtubePlayerAnchor = r; }}></div>
+        <div
+          ref={r => {
+            this.youtubePlayerAnchor = r;
+          }}
+        />
       </div>
     );
   }

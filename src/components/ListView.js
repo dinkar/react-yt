@@ -3,25 +3,32 @@ import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 class ListView extends Component {
-  render () {
+  render() {
     return (
       <div>
         <Row>
-        {
-          this.props.items.map((item) => {
+          {this.props.items.map(item => {
             const snippet = item.snippet;
             const thumbnail = snippet.thumbnails.default;
             return (
-              <Col key={ item.id }>
+              <Col key={item.id}>
                 <Link to={`/video-player/${item.id}`}>
-                  <div>{snippet.channelTitle} - {snippet.title}</div>
-                  <img src={thumbnail.url} width={thumbnail.width} height={thumbnail.height} alt="Search result"/>
+                  <div>
+                    {snippet.channelTitle} - {snippet.title}
+                  </div>
+                  <img
+                    src={thumbnail.url}
+                    width={thumbnail.width}
+                    height={thumbnail.height}
+                    alt="Search result"
+                  />
                 </Link>
-              </Col>);
-          })
-        }
+              </Col>
+            );
+          })}
         </Row>
-      </div>);
+      </div>
+    );
   }
 }
 
