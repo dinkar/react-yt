@@ -7,7 +7,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { fetchVideoCategories } from './actions';
 
 import Routes from './Routes';
-import './App.css';
 import 'react-bootstrap/dist/react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
