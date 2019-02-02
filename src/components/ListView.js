@@ -1,31 +1,25 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { Row, Col } from 'react-bootstrap';
 
 class ListView extends Component {
-    render () {
-        return (
-            <div>
-                <div>Search Text: {this.props.state.searchText}</div>
-                <ul>
-                {
-                    this.props.state.items.map((item) => {
-                    const snippet = item.snippet;
-                    const thumbnail = snippet.thumbnails.default;
-                    return (<li key={item.id.videoId || item.id.playlistId || item.id.channelId}>
-                        <div>{snippet.channelTitle} - {snippet.title}</div>
-                        <img src={thumbnail.url} width={thumbnail.width} height={thumbnail.height} alt="Search result"/>
-                    </li>);
-                    })
-                }
-                </ul>
-            </div>);
-    }
+  render () {
+    return (
+      <div>
+        <Row>
+        {
+          this.props.items.map((item) => {
+            const snippet = item.snippet;
+            const thumbnail = snippet.thumbnails.default;
+            return (
+              <Col key={ item.id }>
+                <div>{snippet.channelTitle} - {snippet.title}</div>
+                <img src={thumbnail.url} width={thumbnail.width} height={thumbnail.height} alt="Search result"/>
+              </Col>);
+          })
+        }
+        </Row>
+      </div>);
+  }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        state: state
-    };
-}
-
-export default connect(mapStateToProps)(ListView);
+export default ListView;

@@ -6,4 +6,4 @@ class VideoPlayer extends Component {
     }
 }
 
-export default VideoPlayer
+export default VideoPlayer;
