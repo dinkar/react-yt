@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { fetchVideoCategories } from './actions';
+import './app.css';
 
 import Routes from './Routes';
 import 'react-bootstrap/dist/react-bootstrap';
@@ -19,14 +20,14 @@ class App extends Component {
     return (
       <Router>
         <Container fluid={true}>
-          <Row className="justify-content-md-center">
+          <Row className="justify-content-md-center app-header">
             <Header />
           </Row>
           <Row>
-            <Col lg={2}>
+            <Col lg={2} className="app-navbar">
               <Navbar items={this.props.state.videoCategories} />
             </Col>
-            <Col lg={10}>
+            <Col lg={10} className="app-main-view">
               <Routes />
             </Col>
           </Row>

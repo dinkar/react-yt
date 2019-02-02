@@ -44,8 +44,9 @@ export const fetchChannelIdVideos = ({ id }) => dispatch => {
     videoCategoryId: id,
     chart: 'mostPopular',
     regionCode: 'US',
-    part: 'snippet',
-    type: 'video'
+    part: 'snippet,statistics',
+    type: 'video',
+    maxResults: 6
   })
     .then(({ items }) => {
       dispatch({

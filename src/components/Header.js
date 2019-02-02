@@ -2,16 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSearchItems } from '../actions';
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
 
 class Header extends Component {
   render() {
     return (
       <header>
         <Form>
-          <Form.Control
-            value={this.props.state.searchText}
-            onChange={this.props.onInputChange}
-          />
+          <InputGroup>
+            <Form.Control
+              value={this.props.state.searchText}
+              onChange={this.props.onInputChange}
+              placeholder="Search"
+            />
+            <InputGroup.Append>
+              <Button variant="light">Submit</Button>
+            </InputGroup.Append>
+          </InputGroup>
         </Form>
       </header>
     );

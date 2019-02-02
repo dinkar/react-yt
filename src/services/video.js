@@ -93,8 +93,8 @@ export const getYouTubePlayerInstance = (el, params) => {
 
   return YTPlayerInstancePromise.then(({ Player }) => {
     return new Player(el, {
-      height: 390,
-      width: 640,
+      height: 600,
+      width: 1000,
       host: 'https://www.youtube.com',
       ...params
     });

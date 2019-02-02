@@ -1,0 +1,42 @@
+.app-header {
+  padding: 10px;
+  background-color: black;
+}
+
+.app-navbar {
+  padding: 10px;
+  background-color: black;
+  height: 100%;
+}
+
+.app-main-view {
+  padding: 10px;
+}
+
+.navbar-items {
+  padding: 10px;
+}
+
+.navbar-items a {
+  color:white;
+}
+
+.video-list-item {
+  max-height: 3.2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  margin: 10px;
+  width: auto;
+}
+
+.video-list-item:hover {
+  text-decoration: wavy;
+  color: #0000009e;
+}
