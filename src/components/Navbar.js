@@ -8,7 +8,7 @@ class Navbar extends Component {
       <ul>
         {this.props.items.map(item => {
           return (
-            <Row as="li" key={item.id} className="navbar-items">
+            <Row as="li" key={item.id} className="navbar-item">
               <Link to={`/video-category/${item.id}`}>
                 {item.snippet.title}
               </Link>

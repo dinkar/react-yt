@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { formatNumber } from '../utils/format';
 
 class ListView extends Component {
   render() {
@@ -13,24 +14,27 @@ class ListView extends Component {
             const thumbnail = snippet.thumbnails.medium;
             return (
               <Col key={item.id}>
-                <Link
-                  to={`/video-player/${item.id}`}
-                  className="video-list-item"
-                  title={snippet.channelTitle + '-' + snippet.title}
-                >
-                  <img
-                    src={thumbnail.url}
-                    width={thumbnail.width}
-                    height={thumbnail.height}
-                    alt="Search result"
-                  />
-                  <div>{snippet.title.substr(0, 30)}</div>
-                  <div>{snippet.channelTitle}</div>
-                  <div>
-                    Published {new Date(snippet.publishedAt).toDateString()}
+                <div className="video-list-item">
+                  <div className="video-list-item-inner">
+                    <Link
+                      to={`/video-player/${item.id}`}
+                      title={snippet.channelTitle + '-' + snippet.title}
+                    >
+                      <img
+                        src={thumbnail.url}
+                        width={thumbnail.width}
+                        height={thumbnail.height}
+                        alt="Search result"
+                      />
+                      <div>{snippet.title.substr(0, 30)}</div>
+                      <div>{snippet.channelTitle}</div>
+                      <div>
+                        Published {new Date(snippet.publishedAt).toDateString()}
+                      </div>
+                      <div>{formatNumber(statistics.viewCount)} Views</div>
+                    </Link>
                   </div>
-                  <div>{statistics.viewCount} Views</div>
-                </Link>
+                </div>
               </Col>
             );
           })}

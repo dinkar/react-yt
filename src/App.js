@@ -24,10 +24,10 @@ class App extends Component {
             <Header />
           </Row>
           <Row>
-            <Col lg={2} className="app-navbar">
+            <Col lg={2} md={2} className="app-navbar">
               <Navbar items={this.props.state.videoCategories} />
             </Col>
-            <Col lg={10} className="app-main-view">
+            <Col lg={10} md={10} className="app-main-view">
               <Routes />
             </Col>
           </Row>
