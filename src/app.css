@@ -25,6 +25,10 @@
   color:white;
 }
 
+.navbar-item a.selected {
+  color:red;
+}
+
 .navbar-item a:hover {
   color: #f1f1f1;
 }

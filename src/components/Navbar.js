@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Navbar extends Component {
   render() {
@@ -9,9 +9,12 @@ class Navbar extends Component {
         {this.props.items.map(item => {
           return (
             <Row as="li" key={item.id} className="navbar-item">
-              <Link to={`/video-category/${item.id}`}>
+              <NavLink
+                to={`/video-category/${item.id}`}
+                activeClassName="selected"
+              >
                 {item.snippet.title}
-              </Link>
+              </NavLink>
             </Row>
           );
         })}

@@ -1,14 +1,14 @@
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import React from 'react';
-import ListViewWrapper from './components/ListViewWrapper';
-import VideoPlayerWrapper from './components/VideoPlayerWrapper';
+import ListViewWrapper from './pages/ListViewWrapper';
+import VideoPlayerWrapper from './pages/VideoPlayerWrapper';
 
 const Routes = () => (
-  <div>
+  <Switch>
     <Route exact path="/" component={ListViewWrapper} />
     <Route path="/video-category/:id" component={ListViewWrapper} />
     <Route path="/video-player/:videoId" component={VideoPlayerWrapper} />
-  </div>
+  </Switch>
 );
 
 export default Routes;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchChannelIdVideos } from '../actions';
-import ListView from './ListView';
+import ListView from '../components/ListView';
 
 class ListViewWrapper extends Component {
   componentDidMount() {
