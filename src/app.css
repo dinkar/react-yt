@@ -1,0 +1,65 @@
+.app-header {
+  padding: 10px;
+  background-color: black;
+}
+
+.app-navbar {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.app-main-view {
+  padding: 10px;
+}
+
+.navbar-item {
+  padding: 10px;
+}
+
+.navbar-item a {
+  color:white;
+}
+
+.navbar-item a.selected {
+  color:red;
+}
+
+.navbar-item a:hover {
+  color: #f1f1f1;
+}
+
+.video-list-item {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: auto;
+  margin: 10px;
+}
+
+.video-list-item a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.video-list-item a:hover {
+  text-decoration: none;
+}
+
+.video-list-item-inner {
+  margin: 15px;
+}
+
+.video-list-item:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
